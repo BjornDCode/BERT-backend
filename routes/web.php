@@ -10,4 +10,14 @@ Route::group(['middleware' => ['api']], function() {
         'uses' => 'AuthController@signin'
     ]);
 
+
+
+    Route::group(['middleware' => 'jwt.auth'], function() {
+
+        Route::get('/user', [
+            'uses' => 'UserController@index'
+        ]);
+
+    });
+
 });
