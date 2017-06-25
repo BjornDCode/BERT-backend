@@ -18,6 +18,18 @@ Route::group(['middleware' => ['api']], function() {
             'uses' => 'UserController@index'
         ]);
 
+        Route::post('/project', [
+            'uses' => 'ProjectController@store'
+        ]);
+
+        Route::get('/project', [
+            'uses' => 'ProjectController@index'
+        ]);
+
+        Route::get('/project/{project}', [
+            'uses' => 'ProjectController@show'
+        ]);
+
     });
 
 });
