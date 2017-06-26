@@ -4,14 +4,15 @@ namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
 use App\Models\Comparison;
+use App\Transformers\ResponseTransformer;
 
 class ComparisonTransformer extends TransformerAbstract
 {
-    /**
-     * A Fractal transformer.
-     *
-     * @return array
-     */
+
+    protected $availableIncludes = [
+        'responses'
+    ];
+
     public function transform(Comparison $comparison)
     {
         return [
@@ -21,4 +22,9 @@ class ComparisonTransformer extends TransformerAbstract
             'scale' => $comparison->scale
         ];
     }
+
+    public function includeResponses(Comparison $comparison) {
+        return $this->collection($comparison->responses, new ResponseTransformer);
+    }
+
 }

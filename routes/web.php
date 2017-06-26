@@ -6,10 +6,14 @@ Route::group(['middleware' => ['api']], function() {
         'uses' => 'AuthController@signup'
     ]);
 
-    Route::post('auth/signin', [
+    Route::post('/auth/signin', [
         'uses' => 'AuthController@signin'
     ]);
 
+
+    Route::post('/response', [
+        'uses' => 'ResponseController@store'
+    ]);
 
 
     Route::group(['middleware' => 'jwt.auth'], function() {
@@ -68,6 +72,15 @@ Route::group(['middleware' => ['api']], function() {
 
         Route::get('/comparison/{comparison}', [
             'uses' => 'ComparisonController@show'
+        ]);
+
+
+        Route::get('/response', [
+            'uses' => 'ResponseController@index'
+        ]);
+
+        Route::get('/response/{response}', [
+            'uses' => 'ResponseController@show'
         ]);
 
     });

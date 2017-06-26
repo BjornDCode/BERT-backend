@@ -45,6 +45,7 @@ class ComparisonController extends Controller
 
         return fractal()
             ->item($comparison)
+            ->includeResponses()
             ->transformWith(new ComparisonTransformer)
             ->toArray();
 
