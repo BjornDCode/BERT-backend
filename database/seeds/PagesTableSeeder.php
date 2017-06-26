@@ -13,7 +13,6 @@ class PagesTableSeeder extends Seeder
     public function run()
     {
         DB::table('pages')->insert([
-            'user_id' => 1,
             'project_id' => 1,
             'title' => 'Front Page',
             'url' => NULL,
@@ -22,7 +21,6 @@ class PagesTableSeeder extends Seeder
         ]);
 
         DB::table('pages')->insert([
-            'user_id' => 1,
             'project_id' => 1,
             'title' => 'About Page',
             'url' => 'http://google.com',
@@ -31,7 +29,6 @@ class PagesTableSeeder extends Seeder
         ]);
 
         DB::table('pages')->insert([
-            'user_id' => 1,
             'project_id' => 2,
             'title' => 'Front Page',
             'url' => 'http://facebook.com',
@@ -40,7 +37,6 @@ class PagesTableSeeder extends Seeder
         ]);
 
         DB::table('pages')->insert([
-            'user_id' => 2,
             'project_id' => 3,
             'title' => 'Front Page',
             'url' => NULL,
@@ -49,7 +45,6 @@ class PagesTableSeeder extends Seeder
         ]);
 
         DB::table('pages')->insert([
-            'user_id' => 2,
             'project_id' => 3,
             'title' => 'Front Page',
             'url' => NULL,

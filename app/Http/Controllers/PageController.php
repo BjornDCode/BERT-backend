@@ -14,7 +14,7 @@ class PageController extends Controller
 
     public function index(GetPagesFormRequest $request) {
 
-        $project = $request->user()->projects->find($request->project_id);
+        $project = $request->user()->projects()->find($request->project_id);
 
         if (!$project) {
 
@@ -24,7 +24,7 @@ class PageController extends Controller
 
         }
 
-        $pages = $request->user()->projects()->find($request->project_id)->pages;
+        $pages = $project->pages;
 
         return fractal()
             ->collection($pages)
@@ -33,11 +33,9 @@ class PageController extends Controller
 
     }
 
-    public function show(Request $request) {
+    public function show(Request $request, Page $page) {
 
-        $page = $request->user()->pages()->find($request->page);
-
-        if (!$page) {
+        if ($request->user()->id !== $page->project->user_id){
 
             return response()->json([
                 'error' => 'Could not access page'
@@ -64,10 +62,11 @@ class PageController extends Controller
 
         }
 
-        $page = $request->user()->pages()->create([
+        $page = $project->pages()->create([
             'title' => $request->json('title'),
             'url' => $request->json('url'),
-            'project_id' => $request->json('project_id')
+            'project_id' => $request->json('project_id'),
+            'user_id' => $request->user()->id
         ]);
 
         return fractal()
