@@ -18,6 +18,7 @@ Route::group(['middleware' => ['api']], function() {
             'uses' => 'UserController@index'
         ]);
 
+
         Route::post('/project', [
             'uses' => 'ProjectController@store'
         ]);
@@ -28,6 +29,19 @@ Route::group(['middleware' => ['api']], function() {
 
         Route::get('/project/{project}', [
             'uses' => 'ProjectController@show'
+        ]);
+
+
+        Route::post('/page', [
+            'uses' => 'PageController@store'
+        ]);
+
+        Route::get('/page', [
+            'uses' => 'PageController@index'
+        ]);
+
+        Route::get('/page/{page}', [
+            'uses' => 'PageController@show'
         ]);
 
     });
