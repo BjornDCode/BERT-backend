@@ -3,15 +3,16 @@
 namespace App\Transformers;
 
 use App\Models\Page;
+use App\Transformers\ProjectTransformer;
 use League\Fractal\TransformerAbstract;
 
 class PageTransformer extends TransformerAbstract
 {
-    /**
-     * A Fractal transformer.
-     *
-     * @return array
-     */
+
+    protected $availableIncludes = [
+        'project'
+    ];
+
     public function transform(Page $page)
     {
         return [
@@ -21,4 +22,9 @@ class PageTransformer extends TransformerAbstract
             'diffForHumans' => $page->created_at->diffForHumans(),
         ];
     }
+
+    public function includeProject(Page $page) {
+        return $this->item($page->project, new ProjectTransformer);
+    }
+
 }
