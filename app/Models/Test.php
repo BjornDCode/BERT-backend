@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Project;
 use App\Models\Page;
+use App\Models\Comparison;
 
 class Test extends Model
 {
@@ -21,6 +22,10 @@ class Test extends Model
 
     public function page() {
         return $this->belongsTo(Page::class);
+    }
+
+    public function comparisons() {
+        return $this->hasMany(Comparison::class);
     }
 
 }

@@ -15,7 +15,13 @@ class CreateComparisonsTable extends Migration
     {
         Schema::create('comparisons', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('test_id')->unsigned();
+            $table->string('from');
+            $table->string('to');
+            $table->integer('scale');
             $table->timestamps();
+
+            $table->foreign('test_id')->references('id')->on('tests');
         });
     }
 

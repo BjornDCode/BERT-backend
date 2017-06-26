@@ -57,6 +57,19 @@ Route::group(['middleware' => ['api']], function() {
             'uses' => 'TestController@show'
         ]);
 
+
+        Route::post('/comparison', [
+            'uses' => 'ComparisonController@store'
+        ]);
+
+        Route::get('/comparison', [
+            'uses' => 'ComparisonController@index'
+        ]);
+
+        Route::get('/comparison/{comparison}', [
+            'uses' => 'ComparisonController@show'
+        ]);
+
     });
 
 });

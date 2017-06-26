@@ -6,13 +6,15 @@ use League\Fractal\TransformerAbstract;
 use App\Models\Test;
 use App\Transformers\ProjectTransformer;
 use App\Transformers\PageTransformer;
+use App\Transformers\ComparisonTransformer;
 
 class TestTransformer extends TransformerAbstract
 {
 
     protected $availableIncludes = [
         'project',
-        'page'
+        'page',
+        'comparisons'
     ];
 
     public function transform(Test $test)
@@ -29,6 +31,10 @@ class TestTransformer extends TransformerAbstract
 
     public function includePage(Test $test) {
         return $this->item($test->page, new PageTransformer);
+    }
+
+    public function includeComparisons(Test $test) {
+        return $this->collection($test->comparisons, new ComparisonTransformer);
     }
 
 }
