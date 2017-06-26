@@ -3,27 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 use App\Models\Project;
-use App\Models\Test;
+use App\Models\Page;
 
-class Page extends Model
+class Test extends Model
 {
 
     protected $fillable = [
-        'user_id',
         'project_id',
-        'title',
-        'url'
+        'page_id',
+        'version'
     ];
-
 
     public function project() {
         return $this->belongsTo(Project::class);
     }
 
-    public function test() {
-        return $this->hasMany(Test::class);
+    public function page() {
+        return $this->belongsTo(Page::class);
     }
 
 }

@@ -44,6 +44,19 @@ Route::group(['middleware' => ['api']], function() {
             'uses' => 'PageController@show'
         ]);
 
+
+        Route::post('/test', [
+            'uses' => 'TestController@store'
+        ]);
+
+        Route::get('/test', [
+            'uses' => 'TestController@index'
+        ]);
+
+        Route::get('/test/{test}', [
+            'uses' => 'TestController@show'
+        ]);
+
     });
 
 });

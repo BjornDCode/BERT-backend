@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Page;
+use App\Models\Test;
 
 class Project extends Model
 {
@@ -19,6 +20,10 @@ class Project extends Model
 
     public function pages() {
         return $this->hasMany(Page::class);
+    }
+
+    public function tests() {
+        return $this->hasMany(Test::class);
     }
 
 }
