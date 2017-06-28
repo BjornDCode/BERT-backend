@@ -18,6 +18,10 @@ class AuthController extends Controller
             'email' => $request->json('email'),
             'password' => bcrypt($request->json('password')),
         ]);
+
+        // return response()->json([
+        //     'success' => 'finally'
+        // ], 200);
     }
 
     public function signin(Request $request) {

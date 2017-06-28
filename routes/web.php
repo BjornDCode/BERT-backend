@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['api']], function() {
+Route::group(['middleware' => ['cors', 'api']], function() {
 
     Route::post('/auth/signup', [
         'uses' => 'AuthController@signup'
