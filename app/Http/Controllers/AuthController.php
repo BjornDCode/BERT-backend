@@ -31,18 +31,20 @@ class AuthController extends Controller
     public function signin(Request $request) {
 
         try {
+            $user = User::where('email', $request->email)->first();
             $token = JWTAuth::attempt($request->only('email', 'password'), [
                 'exp' => Carbon::now()->addWeek()->timestamp,
+                'username' => $user->username
             ]);
         } catch (JWTException $e) {
             return response()->json([
-                'error' => 'Could not authenticate'
+                'password' => ['Could not authenticate']
             ], 500);
         }
 
         if (!$token) {
             return response()->json([
-                'error' => 'Could not authenticate'
+                'password' => ['Email or password is wrong']
             ], 401);
         }
 
