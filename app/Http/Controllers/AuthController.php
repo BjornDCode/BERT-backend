@@ -19,6 +19,10 @@ class AuthController extends Controller
             'password' => bcrypt($request->json('password')),
         ]);
 
+        return response()->json([
+            'success' => true
+        ], 200);
+
         // return response()->json([
         //     'success' => 'finally'
         // ], 200);
