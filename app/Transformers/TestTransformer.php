@@ -21,7 +21,8 @@ class TestTransformer extends TransformerAbstract
     {
         return [
             'id' => $test->id,
-            'version' => $test->version
+            'version' => $test->version,
+            'page' => $test->page
         ];
     }
 
