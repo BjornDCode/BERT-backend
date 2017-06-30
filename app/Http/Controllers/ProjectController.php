@@ -24,9 +24,6 @@ class ProjectController extends Controller
 
     public function show(Project $project, Request $request) {
 
-        // TODO: Error when the requested id doesn't exist. It is returning 404 which is correct, so I guess a 404 page needs to be created
-
-
         if ($project->user_id !== $request->user()->id) {
 
             return response()->json([
@@ -37,6 +34,8 @@ class ProjectController extends Controller
 
         return fractal()
             ->item($project)
+            ->includeTests()
+            ->includePages()
             ->transformWith(new ProjectTransformer)
             ->toArray();
 

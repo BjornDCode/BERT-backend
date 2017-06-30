@@ -4,13 +4,15 @@ namespace App\Transformers;
 
 use App\Models\Project;
 use App\Transformers\PageTransformer;
+use App\Transformers\TestTransformer;
 use League\Fractal\TransformerAbstract;
 
 class ProjectTransformer extends TransformerAbstract
 {
 
     protected $availableIncludes = [
-        'pages'
+        'pages',
+        'tests'
     ];
 
     public function transform(Project $project)
@@ -24,6 +26,10 @@ class ProjectTransformer extends TransformerAbstract
 
     public function includePages(Project $project) {
         return $this->collection($project->pages, new PageTransformer);
+    }
+
+    public function includeTests(Project $project) {
+        return $this->collection($project->tests, new TestTransformer);
     }
 
 }
