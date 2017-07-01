@@ -22,7 +22,7 @@ class Page extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function test() {
+    public function tests() {
         return $this->hasMany(Test::class);
     }
 

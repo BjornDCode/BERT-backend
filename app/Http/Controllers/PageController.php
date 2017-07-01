@@ -45,6 +45,7 @@ class PageController extends Controller
 
         return fractal()
             ->item($page)
+            ->includeTests()
             ->transformWith(new PageTransformer)
             ->toArray();
 
