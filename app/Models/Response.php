@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Comparison;
+use App\Models\Test;
 
 class Response extends Model
 {
@@ -15,6 +16,10 @@ class Response extends Model
 
     public function comparison() {
         return $this->belongsTo(Comparison::class);
+    }
+
+    public function test() {
+        return $this->belongsTo(Test::class);
     }
 
 }

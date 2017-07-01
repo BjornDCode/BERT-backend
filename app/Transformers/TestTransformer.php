@@ -7,6 +7,7 @@ use App\Models\Test;
 use App\Transformers\ProjectTransformer;
 use App\Transformers\PageTransformer;
 use App\Transformers\ComparisonTransformer;
+use App\Transformers\ResponseTransformer;
 
 class TestTransformer extends TransformerAbstract
 {
@@ -14,7 +15,8 @@ class TestTransformer extends TransformerAbstract
     protected $availableIncludes = [
         'project',
         'page',
-        'comparisons'
+        'comparisons',
+        'responses'
     ];
 
     public function transform(Test $test)
@@ -36,6 +38,10 @@ class TestTransformer extends TransformerAbstract
 
     public function includeComparisons(Test $test) {
         return $this->collection($test->comparisons, new ComparisonTransformer);
+    }
+
+    public function includeResponses(Test $test) {
+        return $this->collection($test->responses, new ResponseTransformer);
     }
 
 }

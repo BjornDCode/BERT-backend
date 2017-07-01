@@ -45,6 +45,7 @@ class TestController extends Controller
         return fractal()
             ->item($test)
             ->includeComparisons()
+            ->includeResponses()
             ->transformWith(new TestTransformer)
             ->toArray();
 

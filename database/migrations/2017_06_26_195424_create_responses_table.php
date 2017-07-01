@@ -15,10 +15,12 @@ class CreateResponsesTable extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('test_id')->unsigned();
             $table->integer('comparison_id')->unsigned();
             $table->integer('answer');
             $table->timestamps();
 
+            $table->foreign('test_id')->references('id')->on('tests');
             $table->foreign('comparison_id')->references('id')->on('comparisons');
         });
     }

@@ -31,7 +31,7 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert([
             'project_id' => 2,
             'title' => 'Front Page',
-            'url' => 'http://facebook.com',
+            'url' => 'http://google.com',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
@@ -46,7 +46,15 @@ class PagesTableSeeder extends Seeder
 
         DB::table('pages')->insert([
             'project_id' => 3,
-            'title' => 'Front Page',
+            'title' => 'About Page',
+            'url' => NULL,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('pages')->insert([
+            'project_id' => 3,
+            'title' => 'Contact Page',
             'url' => NULL,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),

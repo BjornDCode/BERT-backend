@@ -29,19 +29,36 @@ class TestsTableSeeder extends Seeder
         ]);
 
         DB::table('tests')->insert([
-            'project_id' => 2,
-            'page_id' => 3,
+            'project_id' => 3,
+            'page_id' => 4,
             'version' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('tests')->insert([
-            'project_id' => 2,
-            'page_id' => 3,
+            'project_id' => 3,
+            'page_id' => 4,
             'version' => 2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+        DB::table('tests')->insert([
+            'project_id' => 3,
+            'page_id' => NULL,
+            'version' => 1,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('tests')->insert([
+            'project_id' => 3,
+            'page_id' => NULL,
+            'version' => 2,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
     }
 }

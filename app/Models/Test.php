@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Project;
 use App\Models\Page;
 use App\Models\Comparison;
+use App\Models\Response;
 
 class Test extends Model
 {
@@ -26,6 +27,10 @@ class Test extends Model
 
     public function comparisons() {
         return $this->hasMany(Comparison::class);
+    }
+
+    public function responses() {
+        return $this->hasMany(Response::class);
     }
 
 }
