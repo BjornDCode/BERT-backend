@@ -30,7 +30,7 @@ class PageTransformer extends TransformerAbstract
     }
 
     public function includeTests(Page $page) {
-        return $this->collection($page->tests, new TestTransformer);
+        return $this->collection($page->tests()->latest('updated_at')->get(), new TestTransformer);
     }
 
 }
