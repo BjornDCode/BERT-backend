@@ -13,7 +13,7 @@ class ProjectController extends Controller
 
     public function index(Request $request) {
 
-        $projects = $request->user()->projects;
+        $projects = $request->user()->projects()->latest('updated_at')->get();
 
         return fractal()
             ->collection($projects)

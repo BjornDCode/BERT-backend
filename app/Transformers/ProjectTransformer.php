@@ -25,11 +25,11 @@ class ProjectTransformer extends TransformerAbstract
     }
 
     public function includePages(Project $project) {
-        return $this->collection($project->pages, new PageTransformer);
+        return $this->collection($project->pages()->latest('updated_at')->get(), new PageTransformer);
     }
 
     public function includeTests(Project $project) {
-        return $this->collection($project->tests, new TestTransformer);
+        return $this->collection($project->tests()->latest('updated_at')->get(), new TestTransformer);
     }
 
 }

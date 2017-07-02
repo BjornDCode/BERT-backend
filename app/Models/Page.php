@@ -11,7 +11,6 @@ class Page extends Model
 {
 
     protected $fillable = [
-        'user_id',
         'project_id',
         'title',
         'url'

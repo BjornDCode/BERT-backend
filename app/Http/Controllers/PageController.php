@@ -24,7 +24,7 @@ class PageController extends Controller
 
         }
 
-        $pages = $project->pages;
+        $pages = $project->pages()->latest('updated_at')->get();
 
         return fractal()
             ->collection($pages)
@@ -66,8 +66,7 @@ class PageController extends Controller
         $page = $project->pages()->create([
             'title' => $request->json('title'),
             'url' => $request->json('url'),
-            'project_id' => $request->json('project_id'),
-            'user_id' => $request->user()->id
+            'project_id' => $request->json('project_id')
         ]);
 
         return fractal()
